@@ -1,1 +1,0 @@
-console.log("ZAIBY CANON <3");
