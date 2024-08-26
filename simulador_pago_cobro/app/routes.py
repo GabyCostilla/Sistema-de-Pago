@@ -2,6 +2,14 @@ from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, login_required, current_user
 from .models import db, User, Product, Order, Payment
 from .forms import LoginForm, RegistrationForm, ProductForm, OrderForm, PaymentForm
+from . import create_app
+
+app = create_app()
+
+@app.route('/')
+@login_required
+def home():
+    return redirect(url_for('dashboard'))
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
